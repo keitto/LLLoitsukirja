@@ -1,4 +1,4 @@
-# L&L Loitsukirja
+# L&L Loitsukirjakone
 
 Generoi tulostettavia loitsukirjoja tulostettavaksi A4:lle vaakasuuntaan. Loitsutiedot on noudettu LnL-SRD:stä, ja mukana tulee työkalu, jolla loitsut voi pyöräyttää uudestaan tämän työkalun ymmärtämään muotoon, sikäli kun niihin tulee muutoksia.
 
@@ -41,9 +41,22 @@ Projektiin on määritetty submoduleksi Myrrysmiesten [LnL-SRD](https://github.c
 
 ## Lisenssit
 
-- LLLoitsukirjakone CC-BY-4.0
-- LnL-SRD (https://github.com/Myrrys/LnL-SRD/) CC-BY 4.0
-- js-kirjasto Dragula (https://github.com/bevacqua/dragula) MIT
-- Fontit: 
-    - jonathonf (https://github.com/jonathonf/solbera-dnd-fonts) et al., CC-BY-SA 4.0
-    - OFL-lisensoidut fontit, ks. `public/OFL`
+Tämä työ on lisensoitu Creative Commons BY 4.0 -lisenssin mukaisesti, joka on saatavilla osoitteessa https://creativecommons.org/licenses/by/4.0/legalcode.
+
+### Legendoja & Lohikäärmeitä SRD
+
+Tämä työ sisältää materiaalia, joka on otettu Legendoja & Lohikäärmeitä SRD:stä ja on saatavilla osoitteessa https://github.com/Myrrys/LnL-SRD. Legendoja & Lohikäärmeitä SRD on lisensoitu Creative Commons BY 4.0 -lisenssin mukaisesti, joka on saatavilla osoitteessa https://creativecommons.org/licenses/by/4.0/legalcode.
+
+### System Reference Document 5.1
+
+This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.
+
+### js-kirjasto Dragula 
+
+(https://github.com/bevacqua/dragula) lisenssi MIT
+
+### Fontit:
+
+Solbera DnD fonts, jonathonf (https://github.com/jonathonf/solbera-dnd-fonts) et al., lisenssi CC-BY-SA 4.0
+
+OFL-lisensoidut fontit, ks. `public/OFL`

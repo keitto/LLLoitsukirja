@@ -18,8 +18,5 @@ Thumbs.db
 ehthumbs.db
 desktop.ini
 
-# LnL-SRD submodule
-vendor/LnL-SRD 
-
 # debug json
 public/data/spelldebug.json
