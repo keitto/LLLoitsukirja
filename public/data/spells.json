@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-03T19:49:48.981Z",
+  "generated_at": "2025-10-05T17:16:00.848Z",
   "count": 319,
   "spells": [
     {
@@ -293,27 +293,6 @@
       "kuvaus": "Kuiskaillen luonnon hengille luot jonkin seuraavista vaikutuksista loitsun kantamalla. Voit luoda pienen harmittoman aisteilla havaittavan vaikutuksen, joka ennustaa, millainen sää on sijainnissasi seuraavan 24 tunnin aikana. Aurinkoinen ja selkeä sää voi näyttäytyä kultaisena hehkuvana ilmassa kelluvana pallona joka muistuttaa auringosta, pikkiriikkisenä sadepilvenä tms. Tämä vaikutus kestää yhden kierroksen. Voit käyttää druidintaidon vaikutuksen myös siihen, että saat nupun välittömästi puhkeamaan kukkaan, siemenkodan paukahtamaan tai lehden kasvamaan. Voit myös luoda välittömän ja vaarattoman aistihavainnon, joka voi olla putoavia lehtiä, kevyt tuulenvire, jonkin pienen eläimen äännähdys tai hyvin heikko haisunäädän haju. Vaikutuksen täytyy mahtua 2x2x2 metrin kokoisen kuution sisälle. Druidintaidolla voi myös välittömästi sytyttää tai sammuttaa kynttilän, soihdun tai pienen leirinuotion.",
       "upcast_md": null,
       "source_path": "Loitsut/Druidintaito.md",
-      "license": "CC-BY-4.0",
-      "source_repo": "https://github.com/Myrrys/LnL-SRD"
-    },
-    {
-      "nimi": "Druidintaito",
-      "relPath": "Loitsut/Kaasumuoto.md",
-      "piiri": 3,
-      "koulu": "muovaaminen",
-      "rituaali": false,
-      "loitsimisviive": "1 toiminto",
-      "kantama": "kosketus",
-      "komponentit": {
-        "verbal": true,
-        "somatic": true,
-        "material": true,
-        "material_text": "pala harsoa ja hieman savua"
-      },
-      "kesto": "keskittyminen, korkeintaan 1 tunnin",
-      "kuvaus": "Muutat vapaaehtoisen olennon ja kaikki tämän kantamat tavarat sumupilveksi.\n\nOllessaan tässä muodossa kohde voi liikkua ainoastaan lentämällä 4 metriä vuorossa. Hän voi myös liikkua toisten olentojen läpi sekä liikkua samaan tilaan heidän kanssaan. Kohteella on sietokyky normaalia vahinkoa vastaan ja <i>etu</i> voimakkuuteen, ketteryyteen ja sitkeyteen liittyviin pelastusheittoihin. Kohde voi kulkea pienten reikien ja rakojen läpi, mutta nesteistä hän ei pääse läpi. Kohde ei voi pudota, ja <i>taintuneena</i> sekä <i>toimintakyvyttömänä</i> hän jää leijailemaan ilmaan.\n\nKaasumuodossa oleva kohde ei voi puhua, käyttää esineitä eikä myöskään pudottaa omia kantamuksiaan. Kohde ei voi myöskään hyökätä tai loitsia. Loitsu lakkaa ennenaikaisesti, jos kohteen osumapisteet laskevat nollaan.",
-      "upcast_md": null,
-      "source_path": "Loitsut/Kaasumuoto.md",
       "license": "CC-BY-4.0",
       "source_repo": "https://github.com/Myrrys/LnL-SRD"
     },
@@ -1511,6 +1490,27 @@
       "kuvaus": "Kosketat vapaaehtoista olentoa. Loitsun keston ajan kohteen iho on karkeaa kuin puun kaarna, ja hänen puolustuksensa ei voi olla matalampi kuin 16, riippumatta siitä, minkälainen haarniska hänen yllään on.",
       "upcast_md": null,
       "source_path": "Loitsut/Kaarnaiho.md",
+      "license": "CC-BY-4.0",
+      "source_repo": "https://github.com/Myrrys/LnL-SRD"
+    },
+    {
+      "nimi": "Kaasumuoto",
+      "relPath": "Loitsut/Kaasumuoto.md",
+      "piiri": 3,
+      "koulu": "muovaaminen",
+      "rituaali": false,
+      "loitsimisviive": "1 toiminto",
+      "kantama": "kosketus",
+      "komponentit": {
+        "verbal": true,
+        "somatic": true,
+        "material": true,
+        "material_text": "pala harsoa ja hieman savua"
+      },
+      "kesto": "keskittyminen, korkeintaan 1 tunnin",
+      "kuvaus": "Muutat vapaaehtoisen olennon ja kaikki tämän kantamat tavarat sumupilveksi.\n\nOllessaan tässä muodossa kohde voi liikkua ainoastaan lentämällä 4 metriä vuorossa. Hän voi myös liikkua toisten olentojen läpi sekä liikkua samaan tilaan heidän kanssaan. Kohteella on sietokyky normaalia vahinkoa vastaan ja <i>etu</i> voimakkuuteen, ketteryyteen ja sitkeyteen liittyviin pelastusheittoihin. Kohde voi kulkea pienten reikien ja rakojen läpi, mutta nesteistä hän ei pääse läpi. Kohde ei voi pudota, ja <i>taintuneena</i> sekä <i>toimintakyvyttömänä</i> hän jää leijailemaan ilmaan.\n\nKaasumuodossa oleva kohde ei voi puhua, käyttää esineitä eikä myöskään pudottaa omia kantamuksiaan. Kohde ei voi myöskään hyökätä tai loitsia. Loitsu lakkaa ennenaikaisesti, jos kohteen osumapisteet laskevat nollaan.",
+      "upcast_md": null,
+      "source_path": "Loitsut/Kaasumuoto.md",
       "license": "CC-BY-4.0",
       "source_repo": "https://github.com/Myrrys/LnL-SRD"
     },
