@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <title>L&L Loitsukirjakone 🧙</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" rel="stylesheet" href="./style.css">
+  <link id="dragBook" rel="stylesheet" href="./layout-dragbook.css">
+
+  <link rel="stylesheet" rel="stylesheet" href="./fonts.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Caesar+Dressing&family=Grenze+Gotisch:wght@100..900&family=Jim+Nightshade&family=Macondo&family=New+Rocker&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/dragula/dist/dragula.min.css">
+  <script src="https://unpkg.com/dragula/dist/dragula.min.js"></script>
+  <script>window.PagedConfig = { auto: false };</script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <header class="toolbar">
+    <div class="left">
+      <h1>L&L Loitsukirjakone</h1>
+    </div>
+
+    <div class="controls">
+      <label class="inline">
+        Fonttikoko
+        <input id="fontSize" type="number" min="8" max="16" value="10">
+      </label>
+      <label class="inline">
+        Otsikko
+        <select id="otsikkoFontti">
+          <option value="Atkinson Hyperlegible Next">Atkinson Hyperlegible Next</option>
+          <option value="Bookinsanity">Bookinsanity</option>
+          <option value="Scaly Sans">Scaly Sans</option>
+          <option value="Scaly Sans Caps">Scaly Sans Caps</option>
+          <option value="Mr Eaves Small Caps">Mr Eaves Small Caps</option>
+          <option value="New Rocker">New Rocker</option>
+          <option value="Macondo">Macondo</option>
+          <option value="Jim Nightshade">Jim Nightshade</option>
+          <option value="Caesar Dressing">Caesar Dressing</option>
+          <option value="Almendra">Almendra</option>
+          <option value="Grenze Gotisch">Grenze Gotisch</option>
+        </select> 
+      </label>
+      <label class="inline">
+        Leipäteksti
+        <select id="tekstiFontti">
+          <option value="Atkinson Hyperlegible Next">Atkinson Hyperlegible Next</option>
+          <option value="Bookinsanity">Bookinsanity</option>
+          <option value="Scaly Sans">Scaly Sans</option>
+          <option value="Scaly Sans Caps">Scaly Sans Caps</option>
+          <option value="Mr Eaves Small Caps">Mr Eaves Small Caps</option>
+          <option value="New Rocker">New Rocker</option>
+          <option value="Macondo">Macondo</option>
+          <option value="Jim Nightshade">Jim Nightshade</option>
+          <option value="Caesar Dressing">Caesar Dressing</option>
+          <option value="Almendra">Almendra</option>
+          <option value="Grenze Gotisch">Grenze Gotisch</option>
+        </select> 
+      </label>
+    </div>
+    <div class="credits">
+      <span>Loitsut © <a href="https://github.com/myrrys/LnL-SRD" target="_blank">Myrrysmiehet</a>, CC-BY-SA 4.0</span>
+      <span>Fontit © <a href="https://github.com/jonathonf/solbera-dnd-fonts" target="_blank">jonathonf</a> et al., CC-BY-SA 4.0</span>
+      <span>sekä <a href="ofl.html">OFL</a></span>
+      <span>Härveli © <a href="https://github.com/Keitto">Keitto</a>, CC-BY-SA 4.0</span>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <aside class="sidebar" id="spellList">
+      <div class="sidebar__header">
+        <input id="search" type="search" placeholder="Haku: nimi, koulu, teksti…" aria-label="Haku">
+        <select id="sort">
+          <option value="circle">Järjestä: Piiri (nouseva)</option>
+          <option value="name">Järjestä: Nimi A–Ö</option>
+        </select>
+      </div>
+      <nav class="sidebar__list" id="spellListItems"></nav>
+    </aside>
+
+    <main id="root" class="pages"></main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+/* ---------- Printattava A4 vaaka, kaksi puoliskoa ---------- */
+.sheetA4 {
+/*
+  width: 297mm;
+  height: 210mm;
+*/
+  width: 277mm;
+  height: 190mm;
+
+  background: #f8f8f8;
+  margin: 12px auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12mm;
+  padding: 6mm;
+  overflow:hidden;
+
+  /* z-indexit muuttujina */
+  --dzZ: 1;     /* drop zonet (row/col/quad) */
+  --slotZ: 1;   /* yksittäiset slotit */
+  --blockZ: 2;  /* pudotetut korttiblokit */
+}
+.half, .half .slot, .block {
+  min-height: 0;
+  min-width: 0;
+}
+/* Vedon aikana nosta dropzonet ja slotit korttien yläpuolelle */
+.dragging .sheetA4 {
+  --dzZ: 4;
+  --slotZ: 3;
+}
+
+/* Kumpikin puolisko on 2×2 -grid */
+.half {
+  --seam: 50px; /* väliin pudotettavien vyöhykkeiden paksuus */
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
+}
+
+/* 2×2 slotit (yksittäinen kortti) */
+.half .slot {
+  border: 1px solid #ccc;
+  position: relative;
+  z-index: var(--slotZ);
+  grid-column: var(--c) / span 1;
+  grid-row: var(--r) / span 1;
+}
+
+/* Hover-korostus */
+.half .slot.drop-hover,
+.half .dz.drop-hover {
+  outline: 2px solid rgb(105, 175, 255);
+  outline-offset: -2px;
+}
+
+/* väliin pudotettavat overlayt (row/col/quad) */
+.half .dz {
+  position: absolute;
+  z-index: var(--dzZ);
+  /* pidä pois tieltä kun ei raahata */
+  pointer-events: none;
+  border: 1px solid transparent; /* näkyy hoverissa outline:lla */
+  touch-action: none;             /* iOS: ei pyyhkäisyä */
+}
+/* Vedon aikana vain -> kuuntele osoitintapahtumia */
+.dragging .half .dz { pointer-events: auto; }
+
+/* ROW = pystypalkki kolumnien välissä; ylä- tai alapuolisko */
+.half .dz-row.top    { width: var(--seam); left: calc(50% - var(--seam)/2); top: 0;    bottom: 50%; }
+.half .dz-row.bottom { width: var(--seam); left: calc(50% - var(--seam)/2); top: 50%; bottom: 0;  }
+
+/* COL = matala vaakapalkki rivien välissä; vasen tai oikea puolisko */
+.half .dz-col.left   { height: var(--seam); top: calc(50% - var(--seam)/2); left: 0;   right: 50%; }
+.half .dz-col.right  { height: var(--seam); top: calc(50% - var(--seam)/2); left: 50%; right: 0;  }
+
+/* neljän slotin keskus */
+.half .dz-quad.center {
+  width: 16mm;
+  height: 16mm;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Pudotetut kortit = wrapper on grid-item */
+.block {
+  position: relative;
+  z-index: var(--blockZ);
+  padding: 4px;          /* pieni sisämarginaali kortille */
+}
+.block > .card { width: 100%; height: 100%; }
+
+/* Sijoitus wrapperille */
+.block--slot       { grid-column: var(--c) / span 1; grid-row: var(--r) / span 1; }
+.block--row.top    { grid-column: 1 / -1; grid-row: 1 / span 1; }
+.block--row.bottom { grid-column: 1 / -1; grid-row: 2 / span 1; }
+.block--col.left   { grid-column: 1 / span 1; grid-row: 1 / -1; }
+.block--col.right  { grid-column: 2 / span 1; grid-row: 1 / -1; }
+.block--quad       { grid-column: 1 / -1;        grid-row: 1 / -1; }
+
+/* kortti täyttää solunsa; ei ylimääräisiä marginaaleja */
+.sheetA4 .card { margin: 0; height: 100%; }
+
+/* Safarifix: salli raahaus ja estä tekstivalinta vedon aikana */
+.block, .block .card { -webkit-user-drag: element; }
+.dragging .block .card,
+.dragging .block .card * {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: grabbing;
+}
+/* vetokahva: otsikosta voi aina raahata */
+.card__header,
+.card__header * {
+  user-select: none;
+  -webkit-user-select: none;
+}
+.card__header {
+  cursor: grab;
+  -webkit-user-drag: element;
+}
+.card__header:active { cursor: grabbing; }
+
+/* älä yritä raahata zoneja tai slotteja itsenään */
+.slot, .dz { -webkit-user-drag: none; }
+
+/* Dragula-vivahteet (jos et lataa dragula.min.css:ää) */
+.gu-mirror {
+  position: fixed !important;
+  pointer-events: none;
+  z-index: 9999 !important;
+  opacity: 0.9;
+  transform: rotate(0.0001deg); /* safari reflow-fix */
+}
+.gu-transit {
+  opacity: 0.4;
+}
+.gu-hide { display: none !important; }
+
+/* Meidän hover-korostus säilyy */
+.half .slot.drop-hover,
+.half .dz.drop-hover {
+  outline: 2px solid rgb(105, 175, 255);
+  outline-offset: -2px;
+}
+
+/* (valinnainen) sivupalkin rivin look vedettäessä */
+.sidebar__item { cursor: grab; }
+.sidebar__item:active { cursor: grabbing; }
+
+/* Esimerkkityylejä – vapaaehtoisia */
+.pageControls { position: absolute; top: 4px; right: 4px; display: flex; gap: 4px; z-index: 5; }
+.pageControls .pageAddBtn,
+.pageControls .pageDelBtn { 
+    font: inherit; 
+    padding: 2px 6px; 
+    border-radius: 3px; 
+    opacity: .85; 
+    border: 1px solid var(--muted);
+    background: transparent;
+}
+.addPageSentinel { height: 120px; margin-top: 16px; border: 2px dashed transparent; }
+.addPageSentinel.drop-hover { border-color: var(--ink, #444); background: rgba(0,0,0,.03); }
+.sheetA4 { position: relative; }
+
+
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.3'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.clouds::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.3'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.clouds-green::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.3' fill='%23008040'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/*
+
+data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'>
+    <filter id='noise'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/>
+    </filter><rect width='100%' height='100%' filter='url(#noise)' opacity='0.3'/>
+</svg>
+*/
+
+/* ---- printti ---- */
+@media print {
+  .sheetA4 { 
+    break-after: page;
+    page-break-after: always;
+    box-shadow: none; 
+    border: none; 
+    background: white; 
+  }
+  .sheetA4:last-child {
+    break-after: never !important;
+    page-break-after: never !important;
+  }  
+  .pageControls, .addPageSentinel { display: none !important; }
+  .half { border: none; background: white; }
+  .half .slot { border: 0; }
+  .half .dz { display: none !important; }
+  .block { box-shadow: none; }
+}

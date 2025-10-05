@@ -1,0 +1,3 @@
+[submodule "vendor/LnL-SRD"]
+	path = vendor/LnL-SRD
+	url = https://github.com/Myrrys/LnL-SRD

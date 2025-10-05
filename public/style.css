@@ -1,0 +1,277 @@
+:root {
+  --background-color: #ddd;
+  --page-margin: 10mm;
+  --cols: 3;
+  --rows: 3;
+  --gap: 3mm;
+  --card-w: 63mm;
+  --card-h: 88mm;
+
+  --body-font-size: 10px;
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+  --font: 'Atkinson Hyperlegible Next', sans-serif;
+  --title-font: 'Atkinson Hyperlegible Next', sans-serif;
+  --ink: #111;
+  --muted: #666;
+  --line: #ccd0d5;
+  --pill-bg: #f1f3f5;
+}
+* { 
+  box-sizing: border-box; 
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  color: var(--ink);
+  font: 400 12px var(--font-ui);
+  background: var(--background-color);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---- workspace ---- */
+.workspace {
+  display: grid;
+  grid-template-columns: var(--sidebar-w, clamp(220px, 16vw, 360px)) 1fr;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: calc(100vh - 100px); /* 100px = header height */
+}
+
+/* ---- main, loitsukortit ---- */
+main {
+  font: 400 var(--body-font-size)/1.35 var(--font);
+}
+.credits {
+  font-size: 0.75em;
+  color: var(--muted);
+  text-align: center;
+  padding: 4px 0;
+  display:flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: "Mr Eaves Small Caps", serif;
+  font-weight:600; font-size:2em; color:#fff;
+  text-shadow:0 1px 3px #000, 0 0 2px #000;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7dvh;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: var(--background-color);
+  z-index: 10;
+  height: 100px;
+}
+.toolbar .left { display: flex; align-items: baseline; gap: 10px; }
+.muted { color: var(--muted); font-size: 0.9em; }
+.controls { 
+  justify-content: space-between;
+  flex-grow: 1;
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 8px; 
+  align-items: center; 
+}
+.controls input[type="search"] { min-width: 22ch; }
+.controls .inline { display: inline-flex; gap: 6px; align-items: center; }
+button { cursor: pointer; }
+
+.pages {
+  padding: 16px;
+  display: grid;
+  gap: 24px;
+}
+
+/* Yhteiset card-jutut */
+.card {
+  border: 1px solid var(--ink);
+  border-radius: 2mm;
+  padding: 3mm;
+  display: grid;
+  grid-template-rows: auto auto 1fr; 
+}
+.block > .card {
+  min-height: 0;
+}
+.card__body {
+  min-height: 0;      /* kriittinen Safari/Chrome grid -korjaus */
+  overflow: auto;     /* rullaa jos tekstiä on liikaa */
+  /* valinnainen pienen pieni sisäreuna, ettei pystyrulla peitä tekstiä */
+  padding-right: 1mm;
+  text-align: justify;
+}
+.card__body > b:before {
+    content: ' ';
+    clear: right;
+    display: block;
+    height: 0.5em;
+}
+/* ---- valitun loitsun indikaattori ---- */
+.card.is-selected {
+  outline: 3px solid white;
+  outline-offset: -2px;
+  box-shadow: 4px 4px 8px #00000088;
+}
+
+/* ---------- Väripohjat ---------- */
+.koulu-suojelus      { background: radial-gradient(circle at 70% 60%, #fff 70%, hsl(222,36%,71%) 100%); }
+.koulu-kutsuminen    { background: radial-gradient(circle at 70% 60%, #fff 70%, hsl(112,34%,48%) 100%); }
+.koulu-ennustaminen  { background: radial-gradient(circle at 70% 60%, #fff 70%, hsl(57,63%,68%) 100%); }
+.koulu-lumoaminen    { background: radial-gradient(circle at 70% 60%, #fff 70%, hsl(182,71%,58%) 100%); }
+.koulu-luominen      { background: radial-gradient(circle at 70% 60%, #fff 70%, hsl(0,71%,55%) 100%); }
+.koulu-illuusio      { background: radial-gradient(circle at 70% 60%, #fff 70%, hsl(298,39%,52%) 100%); }
+.koulu-kuolontaikuus { background: radial-gradient(circle at 70% 60%, #fff 70%, hsl(27, 8%,27%) 100%); }
+.koulu-muovaaminen   { background: radial-gradient(circle at 70% 60%, #fff 70%, hsl(39,36%,40%) 100%); }
+
+.pill{
+  display:inline-block; border:1px solid var(--line); background:var(--pill-bg);
+  border-radius:999px; padding:0 6px; font-size:0.85em;
+}
+
+.bg-suojelus      { border-radius: 2px; padding: 0 3px; color:white; background-color: hsl(222,36%,71%); }
+.bg-kutsuminen    { border-radius: 2px; padding: 0 3px; color:white; background-color: hsl(112,34%,48%); }
+.bg-ennustaminen  { border-radius: 2px; padding: 0 3px; color:white; background-color: hsl(57,63%,68%); }
+.bg-lumoaminen    { border-radius: 2px; padding: 0 3px; color:white; background-color: hsl(182,71%,58%); }
+.bg-luominen      { border-radius: 2px; padding: 0 3px; color:white; background-color: hsl(0,71%,55%); }
+.bg-illuusio      { border-radius: 2px; padding: 0 3px; color:white; background-color: hsl(298,39%,52%); }
+.bg-kuolontaikuus { border-radius: 2px; padding: 0 3px; color:white; background-color: hsl(27, 8%,27%); }
+.bg-muovaaminen   { border-radius: 2px; padding: 0 3px; color:white; background-color: hsl(39,36%,40%); }
+
+/* piirin merkki */
+.card__header .titlePiiri{
+  font-weight:600; font-size:1.9em; color:#fff;
+  text-shadow:0 1px 3px #000, 0 0 2px #000;
+  background-color:white; border-radius:1em; border:2px solid #fff;
+  width:1.5em; height:1.5em;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  position:absolute; top:5px; right:5px;
+}
+.title {
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 1.25em;
+  color:#fff;
+  text-shadow: 0 1px 3px #000, 0 0 2px #000;
+}
+/* kaareva "PIIRI" */
+.titlePiiri div > span{
+  position:absolute; bottom:0; left:50%; transform-origin: top center; font-size:0.4em;
+}
+.konstiSmaller{ font-size:0.5em; position:relative; }
+.titlePiiri div span:nth-child(1){ transform: rotate(68deg)  translateY(100%); }
+.titlePiiri div span:nth-child(2){ transform: rotate(38deg)  translateY(100%); }
+.titlePiiri div span:nth-child(3){ transform: rotate(20deg)  translateY(100%); }
+.titlePiiri div span:nth-child(4){ transform: rotate(2deg)   translateY(100%); }
+.titlePiiri div span:nth-child(5){ transform: rotate(-26deg) translateY(100%); }
+
+.card__facts{
+  margin:2mm 0 2mm;
+  display:grid; grid-template-columns:auto 1fr; gap:1mm 2mm;
+  font-size:0.92em;
+}
+.card__facts dt{ color:var(--muted); }
+.card__facts dd{ margin:0; }
+/* yhteiset card-jutut loppuu*/
+
+/* ---- sivupalkki ---- */
+.sidebar {
+  border-right: 1px solid var(--line);
+  padding: 0 12px;
+  position: sticky;     /* pysyy näkyvissä scrollatessa */
+  top: 0;               /* jos sinulla on .toolbar sticky, voit käyttää sen korkeutta muuttujana */
+  height: 100%;
+  max-height: none;
+  overflow: auto;
+  background: var(--background-color);
+  z-index: 5;           /* alle toolbaarin (10), yli taustan */
+}
+
+.sidebar__header {
+  display: grid;
+  position: sticky;
+  top: 0;
+  background: var(--background-color);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  align-items: flex-start;
+  gap: 10px;
+  padding:10px 0;
+}
+
+.sidebar__list {
+  display: grid;
+  gap: 6px;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.sidebar__item:hover { background: rgba(0,0,0,0.04); }
+.sidebar__item.is-active { outline: 2px solid var(--line); }
+
+@page {
+  size: A4 landscape;     /* 297mm x 210mm */
+  margin: 0;              /* poista selaimen oletusmarginaalit */
+}
+@media print {
+  /* työkalut ei tulostu */
+  .sidebar, .toolbar { display: none !important; }
+  
+  html, body, #root {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    height: auto !important;
+  }  
+  .workspace, .pages, #root, .book, .sheetA4 {
+    margin-top: 0 !important;
+    border-top: 0 !important;
+    background: transparent !important;
+  }  
+  .workspace { grid-template-columns: 1fr !important; }
+  .pages { padding: 0 !important; }
+  .sheetA4, #root { margin: 0; }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }  
+   .card {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .card__body {
+        font-family: var(--body-font-family);
+  }
+  .card__body { overflow: clip; }
+  .card.is-selected {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .card__header .titlePiiri {
+    top: 5px; right: 5px;
+    filter: none !important;
+  }  
+}
