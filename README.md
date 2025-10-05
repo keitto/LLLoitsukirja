@@ -20,6 +20,19 @@ Sivu on suunniteltu siten, että sen pitäisi tulostua melko hyvin järjestelmä
 
 Ensimmäiseen versioon en tehnyt varsinaista loitsueditoria, mutta jos hostaat tämän itse, voit lisätä melko pienellä vaivalla loitsuja `public/data/spells.json` -tiedostoon. Vaihtoehtoisesti voit kirjoittaa markdown-tiedoston LnL-SRD-loitsujen rinnalle, ja rakentaa spells.jsonin uudestaan `scripts/build-spells`.json:illa.
 
+## Puutteet ja viat, korjausehdotukset?
+
+Seuraavassa numerossa:
+
+* Tulostuksen sivutus kuntoon, ainakin Edge(w11), Safari(Macos), Firefox ja Chrome.
+* Loitsulista on vähän ruma
+* Loitsulistaan koulufiltterit, 8 nappia
+* Koulujen väritaustat ovat välttävät, ehkä joku M:tG tyylinen tekstuuri reunoihin ja teksteille valkea tausta?
+* Kotipolttoisten loitsujen lisäys, ensin json sitten työkalu
+* Loitsukirjan tallennus localstorageen
+
+Minut saa parhaiten kiinni tämän asian tiimoilta Discordista nimimerkillä Keitto#2604, luen sitä paljon säännöllisemmin kuin Githubin viestejä.
+
 ## Hostaus
 
 Voit hostata public-kansion sellaisenaan, jos sinulla on jokin webbipalvelin.
