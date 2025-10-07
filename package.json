@@ -3,7 +3,7 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "vendor:srd": "git -C vendor/LnL-SRD reset --hard && git -C vendor/LnL-SRD clean -fdx",
+    "srd:init": "git submodule update --init --force --recursive",
     "build": "node scripts/build-spells.js",
     "start": "npx serve public -l 8123"
   },
