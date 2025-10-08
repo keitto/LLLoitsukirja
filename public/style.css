@@ -89,7 +89,7 @@ button { cursor: pointer; }
 
 .pages {
   padding: 16px;
-  display: grid;
+  /*display: grid;*/
   gap: 24px;
 }
 
