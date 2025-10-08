@@ -25,6 +25,7 @@ Ensimmäiseen versioon en tehnyt varsinaista loitsueditoria, mutta jos hostaat t
 Seuraavassa numerossa:
 
 * Tulostuksen sivutus kuntoon, ainakin Edge(w11), Safari(Macos), Firefox ja Chrome.
+* Komponentti-emojit ei välttämättä avaudu kaikille, checkboxilla valittavaksi teksti/emoji
 * Loitsulista on vähän ruma
 * Loitsulistaan koulufiltterit, 8 nappia
 * Koulujen väritaustat ovat välttävät, ehkä joku M:tG tyylinen tekstuuri reunoihin ja teksteille valkea tausta?
