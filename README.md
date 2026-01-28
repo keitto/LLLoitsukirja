@@ -32,6 +32,9 @@ Seuraavassa numerossa:
 * Kotipolttoisten loitsujen lisäys, ensin json sitten työkalu
 * Loitsukirjan tallennus localstorageen
 
+* marked.js -parsaus loitsun kuvaukseen
+* pdf-generaatio jollain muulla kuin selaimen omalla tulostusdialogilla korjaisi yhteensopivuusongelmat
+
 Minut saa parhaiten kiinni tämän asian tiimoilta Discordista nimimerkillä Keitto#2604, luen sitä paljon säännöllisemmin kuin Githubin viestejä.
 
 ## Hostaus
