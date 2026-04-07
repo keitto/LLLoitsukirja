@@ -207,6 +207,7 @@ data:image/svg+xml,
     box-shadow: none; 
     border: none; 
     background: white; 
+    padding: 0 !important;
   }
   .sheetA4:last-child {
     break-after: never !important;
