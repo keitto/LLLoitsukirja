@@ -111,6 +111,18 @@ button { cursor: pointer; }
   padding-right: 1mm;
   text-align: justify;
 }
+.card__body > p,
+.card__body > table
+{
+  margin: 0 0 0.5em 0;
+}
+.card__body > table {
+  border-collapse: collapse;
+}
+.card__body > table > thead > tr > th:not(:last-child),
+.card__body > table > tbody > tr > td:not(:last-child) {
+  padding-right: 1em;
+}
 .card__body > b:before {
     content: ' ';
     clear: right;
