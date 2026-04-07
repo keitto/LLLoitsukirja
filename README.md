@@ -31,9 +31,10 @@ Seuraavassa numerossa:
 * Koulujen väritaustat ovat välttävät, ehkä joku M:tG tyylinen tekstuuri reunoihin ja teksteille valkea tausta?
 * Kotipolttoisten loitsujen lisäys, ensin json sitten työkalu
 * Loitsukirjan tallennus localstorageen
-
-* marked.js -parsaus loitsun kuvaukseen
 * pdf-generaatio jollain muulla kuin selaimen omalla tulostusdialogilla korjaisi yhteensopivuusongelmat
+
+Lisätty 7.4.2026
+* Kappalejako ja muu muotoilu loitsun kuvaukseen marked.js:llä. Loitsut kuten uudelleensyntyminen ja säänhallinta ovat oikeasti luettavia nyt.
 
 Minut saa parhaiten kiinni tämän asian tiimoilta Discordista nimimerkillä Keitto#2604, luen sitä paljon säännöllisemmin kuin Githubin viestejä.
 

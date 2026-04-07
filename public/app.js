@@ -116,7 +116,7 @@ function renderCard(sp) {
 
   const body = document.createElement('div');
   body.className = 'card__body';
-  body.innerHTML = (sp.kuvaus || '').trim();
+  body.innerHTML = marked.parse((sp.kuvaus || '').trim());
 
   const meta = document.createElement('dl');
   meta.className = 'card__facts';
