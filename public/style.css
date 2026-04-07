@@ -255,14 +255,16 @@ button { cursor: pointer; }
     background: #fff !important;
     height: auto !important;
   }  
-  .workspace, .pages, #root, .book, .sheetA4 {
+  .workspace, .pages, #root, .book {
     margin-top: 0 !important;
     border-top: 0 !important;
     background: transparent !important;
   }  
   .workspace { grid-template-columns: 1fr !important; }
   .pages { padding: 0 !important; }
-  .sheetA4, #root { margin: 0; }
+  .sheetA4 > .half {
+    padding-top: 1cm !important;
+  }
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
