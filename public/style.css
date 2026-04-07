@@ -87,6 +87,88 @@ h1 {
 .controls .inline { display: inline-flex; gap: 6px; align-items: center; }
 button { cursor: pointer; }
 
+/* TOGGLET */
+#spellSchoolToggles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+#spellSchoolToggles input[type="checkbox"] {
+  display: none;
+}
+
+#spellSchoolToggles label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  /* default = "pois päältä" */
+  background: #eee;
+  color: #333;
+  border: 1px solid #999;
+}
+#spellSchoolToggles input[type="checkbox"]:checked + label {
+  border-color: rgba(0,0,0,0.2);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.25);
+}
+#spellSchoolToggles input[type="checkbox"]:checked + label.bg-suojelus {
+  background-color: hsl(222,36%,71%);
+  color: white;
+}
+
+#spellSchoolToggles input[type="checkbox"]:checked + label.bg-kutsuminen {
+  background-color: hsl(112,34%,48%);
+  color: white;
+}
+
+#spellSchoolToggles input[type="checkbox"]:checked + label.bg-ennustaminen {
+  background-color: hsl(57,63%,68%);
+  color: white;
+}
+
+#spellSchoolToggles input[type="checkbox"]:checked + label.bg-lumoaminen {
+  background-color: hsl(182,71%,58%);
+  color: white;
+}
+
+#spellSchoolToggles input[type="checkbox"]:checked + label.bg-luominen {
+  background-color: hsl(0,71%,55%);
+  color: white;
+}
+
+#spellSchoolToggles input[type="checkbox"]:checked + label.bg-illuusio {
+  background-color: hsl(298,39%,52%);
+  color: white;
+}
+
+#spellSchoolToggles input[type="checkbox"]:checked + label.bg-kuolontaikuus {
+  background-color: hsl(27, 8%,27%);
+  color: white;
+}
+
+#spellSchoolToggles input[type="checkbox"]:checked + label.bg-muovaaminen {
+  background-color: hsl(39,36%,40%);
+  color: white;
+}
+#spellSchoolToggles label {
+  opacity: 0.7;
+}
+
+#spellSchoolToggles input[type="checkbox"]:checked + label {
+  opacity: 1;
+}
+/* /TOGGLET */
+
 .pages {
   padding: 16px;
   /*display: grid;*/
