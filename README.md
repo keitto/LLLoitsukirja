@@ -32,6 +32,8 @@ Seuraavassa numerossa:
 * Kotipolttoisten loitsujen lisäys, ensin json sitten työkalu
 * Loitsukirjan tallennus localstorageen
 * pdf-generaatio jollain muulla kuin selaimen omalla tulostusdialogilla korjaisi yhteensopivuusongelmat
+* Tarkasta kylmyyden kehä -loitsun kuvaus. 
+* Tummenna lumous- ja ennustus-koulujen värejä
 
 Lisätty 7.4.2026
 * Kappalejako ja muu muotoilu loitsun kuvaukseen marked.js:llä. Loitsut kuten uudelleensyntyminen ja säänhallinta ovat oikeasti luettavia nyt.

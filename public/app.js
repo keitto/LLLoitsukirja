@@ -623,17 +623,30 @@ el.root.addEventListener('click', (e) => {
     const v = e.target.value;
     document.documentElement.style.setProperty('--font', v);
   });
-  // hakukenttä: rajaa vain sidebarin listaa
+  // hakukenttä: rajaa sidebarin listaa
   el.search?.addEventListener('input', () => {
     const filtered = filterSpells(sortSpells(allSpells));
     renderSidebar(filtered);
   });
-  // koulu-suodattimet: rajaa vain sidebarin listaa
+  // koulu-suodattimet: shift-click piilottaa muut kuin klikatin
+  el.spellSchoolToggles?.addEventListener('click', (e) => {
+    const clickedCheckbox = e.target.closest?.('input[type="checkbox"]');
+    const clickedLabel = e.target.closest?.('label');
+    const checkbox = clickedCheckbox || clickedLabel?.control;
+    if (!checkbox || !e.shiftKey) return;
+
+    e.preventDefault();
+    el.spellSchoolToggles.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      cb.checked = cb === checkbox;
+    });
+
+    const filtered = filterSpells(sortSpells(allSpells));
+    renderSidebar(filtered);
+  });
   el.spellSchoolToggles?.addEventListener('change', (e) => {
-    if (e.target.type === 'checkbox') {
-      const filtered = filterSpells(sortSpells(allSpells));
-      renderSidebar(filtered);
-    }
+    if (e.target?.type !== 'checkbox') return;
+    const filtered = filterSpells(sortSpells(allSpells));
+    renderSidebar(filtered);
   });
   // sorttaus: järjestää vain sidebarin listaa
   el.sort?.addEventListener('change', () => {
