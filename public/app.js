@@ -4,6 +4,7 @@ const DATA_URL = './data/spells.json';
 const el = {
   root: document.getElementById('root'),
   search: document.getElementById('search'),
+  spellSchoolToggles: document.getElementById('spellSchoolToggles'),
   sort: document.getElementById('sort'),
   fontSize: document.getElementById('fontSize'),
   showHigher: document.getElementById('showHigher'),
@@ -57,12 +58,24 @@ async function loadData() {
 }
 
 function filterSpells(spells) {
+  const filteredBySchool = spells.filter(sp => {
+    const koulu = sp.koulu?.toLowerCase() || '';
+    for (const k of KOULUT) {
+      if (k.nimi.toLowerCase() === koulu) {
+        const checkbox = document.getElementById('show-' + k.lyhyt);
+        if (checkbox && !checkbox.checked) return false;
+      }
+    }
+    return true;
+  });
+  
   const q = normalize(el.search?.value);
-  if (!q) return spells;
-  return spells.filter(sp => {
+  if (!q) return filteredBySchool;
+  return filteredBySchool.filter(sp => {
     const hay = `${normalize(sp.nimi)} ${(sp.piiri ?? '')} ${normalize(sp.koulu)} ${normalize(sp.kuvaus)}`;
     return hay.includes(q);
   });
+
 }
 function sortSpells(spells) {
   const mode = el.sort?.value;
@@ -335,7 +348,7 @@ function renderSidebar(spells) {
 
     row.innerHTML = `
       <span class="sidebar__item-name">${sp.nimi}</span>
-      <span class="sidebar__item-meta bg-${sp.koulu?.toLowerCase() || 'unknown'}">(${piiri} ${kouluShort})</span>
+      <span class="sidebar__item-meta bg-${sp.koulu?.toLowerCase() || 'unknown'}">${piiri} ${kouluShort}</span>
     `;
     list.appendChild(row);
   });
@@ -614,12 +627,19 @@ el.root.addEventListener('click', (e) => {
     const filtered = filterSpells(sortSpells(allSpells));
     renderSidebar(filtered);
   });
-
+  // koulu-suodattimet: rajaa vain sidebarin listaa
+  el.spellSchoolToggles?.addEventListener('change', (e) => {
+    if (e.target.type === 'checkbox') {
+      const filtered = filterSpells(sortSpells(allSpells));
+      renderSidebar(filtered);
+    }
+  });
   // sorttaus: järjestää vain sidebarin listaa
   el.sort?.addEventListener('change', () => {
     const filtered = filterSpells(sortSpells(allSpells));
     renderSidebar(filtered);
   });
+
 
   renderWorkbench({ rebuildSheet: true });
 })();

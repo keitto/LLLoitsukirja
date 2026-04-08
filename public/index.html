@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>L&L Loitsukirjakone 🧙</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" rel="stylesheet" href="./style.css?v=260407">
+  <link rel="stylesheet" rel="stylesheet" href="./style.css?v=260408">
   <link id="dragBook" rel="stylesheet" href="./layout-dragbook.css?v=260407">
 
   <link rel="stylesheet" rel="stylesheet" href="./fonts.css">
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://unpkg.com/dragula/dist/dragula.min.css">
   <script src="https://unpkg.com/dragula/dist/dragula.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script defer src="./app.js"></script>
+  <script defer src="./app.js?v=260408"></script>
 </head>
 <body>
   <header class="toolbar">
@@ -92,23 +92,23 @@
           <option value="circle">Järjestä: Piiri (nouseva)</option>
           <option value="name">Järjestä: Nimi A–Ö</option>
         </select>
-        <div id="spellSchoolToggles" style="display:none">
-          <input type="checkbox" id="suo" checked>
-          <label for="suo" class="bg-suojelus">Suo</label>
-          <input type="checkbox" id="kut" checked>
-          <label for="kut" class="bg-kutsuminen">Kut</label>
-          <input type="checkbox" id="enn" checked>
-          <label for="enn" class="bg-ennustaminen">Enn</label>
-          <input type="checkbox" id="lum" checked>
-          <label for="lum" class="bg-lumoaminen">Lum</label>
-          <input type="checkbox" id="luo" checked>
-          <label for="luo" class="bg-luominen">Luo</label>
-          <input type="checkbox" id="ill" checked>
-          <label for="ill" class="bg-illuusio">Ill</label>
-          <input type="checkbox" id="kuo" checked>
-          <label for="kuo" class="bg-kuolontaikuus">Kuo</label>
-          <input type="checkbox" id="muo" checked>
-          <label for="muo" class="bg-muovaaminen">Muo</label>
+        <div id="spellSchoolToggles" >
+          <input type="checkbox" id="show-Suo" checked>
+            <label for="show-Suo" class="bg-suojelus" title="Suojelus">Suo</label>
+          <input type="checkbox" id="show-Kut" checked>
+          <label for="show-Kut" class="bg-kutsuminen" title="Kutsuminen">Kut</label>
+          <input type="checkbox" id="show-Enn" checked>
+          <label for="show-Enn" class="bg-ennustaminen" title="Ennustaminen">Enn</label>
+          <input type="checkbox" id="show-Lum" checked>
+          <label for="show-Lum" class="bg-lumoaminen" title="Lumoaminen">Lum</label>
+          <input type="checkbox" id="show-Luo" checked>
+          <label for="show-Luo" class="bg-luominen" title="Luominen">Luo</label>
+          <input type="checkbox" id="show-Ill" checked>
+          <label for="show-Ill" class="bg-illuusio" title="Illuusio">Ill</label>
+          <input type="checkbox" id="show-Kuo" checked>
+          <label for="show-Kuo" class="bg-kuolontaikuus" title="Kuolontaikuus">Kuo</label>
+          <input type="checkbox" id="show-Muo" checked>
+          <label for="show-Muo" class="bg-muovaaminen" title="Muovaaminen">Muo</label>
         </div>
       <nav class="sidebar__list" id="spellListItems"></nav>
     </aside>

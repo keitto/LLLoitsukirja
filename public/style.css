@@ -313,8 +313,7 @@ button { cursor: pointer; }
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 8px;
-  padding: 6px 8px;
+  padding: 0 .5em;
   border-radius: 6px;
   cursor: pointer;
   text-decoration: none;
@@ -322,6 +321,11 @@ button { cursor: pointer; }
 }
 .sidebar__item:hover { background: rgba(0,0,0,0.04); }
 .sidebar__item.is-active { outline: 2px solid var(--line); }
+.sidebar__item-meta {
+  width: 4em;
+  padding: 0.2em 0.5em;
+  border-radius: 1em;  
+}
 
 @page {
   size: A4 landscape;     /* 297mm x 210mm */
