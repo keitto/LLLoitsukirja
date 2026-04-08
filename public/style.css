@@ -1,8 +1,5 @@
 :root {
   --background-color: #ddd;
-  --page-margin: 10mm;
-  --cols: 3;
-  --rows: 3;
   --gap: 3mm;
   --card-w: 63mm;
   --card-h: 88mm;
@@ -244,8 +241,10 @@ button { cursor: pointer; }
 
 /* piirin merkki */
 .card__header .titlePiiri{
-  font-weight:600; font-size:1.9em; color:#fff;
-  text-shadow:0 1px 3px #000, 0 0 2px #000;
+  font-weight:800; 
+  font-size:2em; 
+  color: var(--ink);
+  /*text-shadow:0 1px 3px #000, 0 0 2px #000;*/
   background-color:white; border-radius:1em; border:2px solid #fff;
   width:1.5em; height:1.5em;
   display:flex; align-items:center; justify-content:center; text-align:center;
@@ -253,21 +252,17 @@ button { cursor: pointer; }
 }
 .title {
   font-family: var(--title-font);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.25em;
   color:#fff;
-  text-shadow: 0 1px 3px #000, 0 0 2px #000;
+  /*text-shadow: 0 1px 3px #000, 0 0 2px #000;*/
+  -webkit-text-stroke: 0.05em var(--ink);
 }
 /* kaareva "PIIRI" */
 .titlePiiri div > span{
   position:absolute; bottom:0; left:50%; transform-origin: top center; font-size:0.4em;
 }
 .konstiSmaller{ font-size:0.5em; position:relative; }
-.titlePiiri div span:nth-child(1){ transform: rotate(68deg)  translateY(100%); }
-.titlePiiri div span:nth-child(2){ transform: rotate(38deg)  translateY(100%); }
-.titlePiiri div span:nth-child(3){ transform: rotate(20deg)  translateY(100%); }
-.titlePiiri div span:nth-child(4){ transform: rotate(2deg)   translateY(100%); }
-.titlePiiri div span:nth-child(5){ transform: rotate(-26deg) translateY(100%); }
 
 .card__facts{
   margin:2mm 0 2mm;
@@ -329,7 +324,7 @@ button { cursor: pointer; }
 
 @page {
   size: A4 landscape;     /* 297mm x 210mm */
-  margin: 0;              /* poista selaimen oletusmarginaalit */
+  margin: 0 !important;
 }
 @media print {
   /* työkalut ei tulostu */
@@ -340,17 +335,19 @@ button { cursor: pointer; }
     padding: 0 !important;
     background: #fff !important;
     height: auto !important;
+    min-height: auto
   }  
   .workspace, .pages, #root, .book {
     margin-top: 0 !important;
     border-top: 0 !important;
     background: transparent !important;
   }  
-  .workspace { grid-template-columns: 1fr !important; }
-  .pages { padding: 0 !important; }
-  .sheetA4 > .half {
-    padding-top: 1cm !important;
+  .workspace { 
+    grid-template-columns: 1fr !important; 
+    height:auto;
   }
+
+  .pages { padding: 0 !important; }
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -372,6 +369,5 @@ button { cursor: pointer; }
   }
   .card__header .titlePiiri {
     top: 5px; right: 5px;
-    filter: none !important;
   }  
 }

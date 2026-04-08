@@ -207,12 +207,25 @@ data:image/svg+xml,
     box-shadow: none; 
     border: none; 
     background: white; 
-    padding: 0 !important;
+    padding: 6mm !important;
+    margin: 0 auto !important;
   }
   .sheetA4:last-child {
-    break-after: never !important;
-    page-break-after: never !important;
   }  
+
+  .sheetA4 > .half {
+    /*padding-top: 2mm !important;*/
+  }
+
+  .sheetA4 > .half[data-side="left"] {
+    /*padding-left: 8mm !important;*/
+  }
+  .sheetA4 > .half[data-side="right"] {
+    /*padding-right: 8mm !important;*/
+  }
+
+
+
   .pageControls, .addPageSentinel { display: none !important; }
   .half { border: none; background: white; }
   .half .slot { border: 0; }

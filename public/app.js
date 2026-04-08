@@ -117,7 +117,7 @@ function renderCard(sp) {
     <div class="title">${escapeHtml(sp.nimi || '')}</div>
     <div class="titlePiiri">
       ${Number.isInteger(sp.piiri)
-        ? (sp.piiri === 0 ? "<span class='konstiSmaller'>taika konsti</span>" : sp.piiri + mutkaPiiri)
+        ? (sp.piiri === 0 ? "<span class='konstiSmaller'>taika konsti</span>" : sp.piiri)
         : "?"}
     </div>
     <div class="meta">
@@ -350,6 +350,7 @@ function renderSidebar(spells) {
       <span class="sidebar__item-name">${sp.nimi}</span>
       <span class="sidebar__item-meta bg-${sp.koulu?.toLowerCase() || 'unknown'}">${piiri} ${kouluShort}</span>
     `;
+    
     list.appendChild(row);
   });
 }
